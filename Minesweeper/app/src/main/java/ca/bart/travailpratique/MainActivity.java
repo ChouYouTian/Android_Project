@@ -31,7 +31,7 @@ public class MainActivity extends Activity{
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.minesweeper);
+        setContentView(R.layout.activity_main);
 
         Button button = (Button) findViewById(R.id.newGame);
         button.setOnClickListener(new View.OnClickListener() {
@@ -172,7 +172,7 @@ public class MainActivity extends Activity{
             button.setBackgroundResource(R.drawable.button_up);
         }
         // IF NOT THE CELL IS NOT EXPOSED, FLAG IT
-        else if (!grid[x][y].Explosion) {
+        else if (!grid[x][y].open) {
             foundMines--;
             updateText();
             grid[x][y].isFlagged = true;
@@ -182,20 +182,20 @@ public class MainActivity extends Activity{
     }
 
     public void updateText() {
-        mineCount.setText("Mines restantes : " + foundMines);
+        mineCount.setText("剩餘地雷 : " + foundMines);
     }
 
     public boolean exposeCell(int x, int y) {
 
         // IF TILE IS ALREADY EXPOSED
-        if (grid[x][y].Explosion) {
-            // DO NOTHING
+        if (grid[x][y].open) {
+            // DO NOTHING剩餘地雷
             return false;
         }
         // IF TILE IS NOT FLAGGED
         else if (!grid[x][y].isFlagged){
             // SHOW THE TILE
-            grid[x][y].Explosion = true;
+            grid[x][y].open = true;
         }
 
         // IF TILE IS NOT FLAGGED AND IT IS A MINE
@@ -234,7 +234,7 @@ public class MainActivity extends Activity{
                 final int x = i;
                 final int y = j;
 
-                if(grid[x][y].Explosion) {
+                if(grid[x][y].open) {
                     // CHECK THE MINES NEARBY
                     // UPDATE WITH THE ADEQUATE IMAGE
                     Button button = getButtonByCoordinate(x, y);

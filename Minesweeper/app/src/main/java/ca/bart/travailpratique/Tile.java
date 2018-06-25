@@ -11,7 +11,7 @@ import java.io.Serializable;
  */
 
 public class Tile implements /*Parcelable,*/ Serializable{
-    public boolean Explosion;
+    public boolean open;
     public boolean isMine;
     public boolean isFlagged;
     public int myDraw;
@@ -50,7 +50,7 @@ public class Tile implements /*Parcelable,*/ Serializable{
     //};
 
     public Tile() {
-        Explosion = false;
+        open = false;
         isMine = false;
         isFlagged = false;
         neigboringMines = 0;
@@ -59,7 +59,7 @@ public class Tile implements /*Parcelable,*/ Serializable{
 
     public Tile(boolean mine){
         isMine = mine;
-        Explosion = false;
+        open = false;
         isFlagged = false;
         neigboringMines = 0;
     }

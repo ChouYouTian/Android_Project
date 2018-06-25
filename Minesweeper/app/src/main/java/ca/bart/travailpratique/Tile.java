@@ -17,38 +17,6 @@ public class Tile implements /*Parcelable,*/ Serializable{
     public int myDraw;
     public int neigboringMines;
 
-    //@Override
-    //public void writeToParcel(Parcel dest, int flags) {
-    //    dest.writeInt(myDraw);
-    //    dest.writeInt(neigboringMines);
-    //    dest.writeByte((byte) (exposed ? 1 : 0) );
-    //    dest.writeByte((byte) (isMine ? 1 : 0) );
-    //    dest.writeByte((byte) (isFlagged ? 1 : 0) );
-    //}
-//
-    //public int describeContents() {
-    //    return 0;
-    //}
-
-    //private Tile(Parcel in) {
-    //    myDraw = in.readInt();
-    //    neigboringMines = in.readInt();
-    //    exposed = in.readByte() != 0;
-    //    isMine = in.readByte() != 0;
-    //    isFlagged = in.readByte() != 0;
-    //}
-
-    //public static final Parcelable.Creator<Tile> CREATOR
-    //        = new Parcelable.Creator<Tile>() {
-    //    public Tile createFromParcel(Parcel in) {
-    //        return new Tile(in);
-    //    }
-//
-    //    public Tile[] newArray(int size) {
-    //        return new Tile[size];
-    //    }
-    //};
-
     public Tile() {
         open = false;
         isMine = false;
